@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class HealthCheck extends HttpServlet {
+public class ChecagemDeSaudeDoServidor extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
@@ -22,10 +22,10 @@ public class HealthCheck extends HttpServlet {
     response.setContentType("application/json");
     response.setStatus(HttpServletResponse.SC_OK);
 
-    HashMap<String, String> status = new HashMap<String, String>();
-    status.put("server_status", "ok");
-    status.put("server_time", String.valueOf(new Date().toString()));
+    HashMap<String, String> statusDoServidor = new HashMap<String, String>();
+    statusDoServidor.put("status_servidor", "ok");
+    statusDoServidor.put("data_hora_servidor", new Date().toString());
 
-    response.getWriter().println(new Gson().toJson(status));
+    response.getWriter().println(new Gson().toJson(statusDoServidor));
   }
 }
