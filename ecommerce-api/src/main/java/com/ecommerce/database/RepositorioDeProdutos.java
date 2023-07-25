@@ -6,7 +6,10 @@ import com.ecommerce.modelos.Produto;
 
 public class RepositorioDeProdutos {
   private HashMap<Integer, Produto> todosOsProdutos = new HashMap<Integer, Produto>() {
-    {
+    
+	private static final long serialVersionUID = 1L;
+
+	{
       put(1, new Produto(1, "Produto 1", "Descrição do produto 1", 10.0));
       put(2, new Produto(2, "Produto 2", "Descrição do produto 2", 20.0));
       put(3, new Produto(3, "Produto 3", "Descrição do produto 3", 30.0));
