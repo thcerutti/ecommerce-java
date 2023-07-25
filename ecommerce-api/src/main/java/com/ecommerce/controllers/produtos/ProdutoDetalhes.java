@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ProdutosListarTodos extends HttpServlet {
+public class ProdutoDetalhes extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,11 +19,11 @@ public class ProdutosListarTodos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Produto[] todosOsProdutos = new RepositorioDeProdutos().ListarTodos();
-		String listaEmFormatoJson = new Gson().toJson(todosOsProdutos);
+		Produto produto = new RepositorioDeProdutos().ListarTodos()[0];
+		String detalheProduto = new Gson().toJson(produto);
 
 		response.setContentType("application/json");
 		response.setStatus(HttpServletResponse.SC_OK);
-		response.getWriter().println(listaEmFormatoJson);
+		response.getWriter().println(detalheProduto);
 	}
 }

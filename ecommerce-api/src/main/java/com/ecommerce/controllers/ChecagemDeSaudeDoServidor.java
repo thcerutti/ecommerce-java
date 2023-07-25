@@ -24,6 +24,7 @@ public class ChecagemDeSaudeDoServidor extends HttpServlet {
 
     HashMap<String, String> statusDoServidor = new HashMap<String, String>();
     statusDoServidor.put("status_servidor", "ok");
+    statusDoServidor.put("nome", "davi");
     statusDoServidor.put("data_hora_servidor", new Date().toString());
 
     response.getWriter().println(new Gson().toJson(statusDoServidor));
