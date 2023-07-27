@@ -1,4 +1,4 @@
-const InsigniaDaMissao = ({ urlInsignia }) => {
+const InsigniaDaMissao = ({ urlInsignia, urlWikipedia }) => {
   const clickComponente = () => {
     console.log("clicou na imagem", urlInsignia);
   };
@@ -11,6 +11,7 @@ const InsigniaDaMissao = ({ urlInsignia }) => {
         alt="Insignia da Missão"
         onClick={clickComponente}
       />
+      <a href={urlWikipedia}>Wikipedia</a>
     </div>
   );
 };

@@ -25,6 +25,8 @@ const ListagemDeProdutos = () => {
             <p>Ano de lançamento: {cadaLancamento.launch_year}</p>
             <InsigniaDaMissao
               urlInsignia={cadaLancamento.links.mission_patch_small}
+              urlWikipedia={cadaLancamento.links.wikipedia}
+
             />
           </div>
         );
