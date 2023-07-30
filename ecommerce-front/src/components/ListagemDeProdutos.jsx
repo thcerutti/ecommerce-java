@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import apiConstants from "@/constants";
 
 const ListagemDeProdutos = () => {
   const [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/produtos/listar-todos`)
+      .get(`${apiConstants.API_URL}/produtos/listar-todos`)
       .then((respostaApi) => setProdutos(respostaApi.data));
   }, []);
 
