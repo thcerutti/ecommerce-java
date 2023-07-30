@@ -1,36 +1,40 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import InsigniaDaMissao from "./InsigniaDaMissao";
 
 const ListagemDeProdutos = () => {
-  const [lancamentos, setLancamentos] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+
   useEffect(() => {
-    axios.get("https://api.spacexdata.com/v3/launches").then((respostaApi) => {
-      console.log(respostaApi.data);
-      setLancamentos(respostaApi.data);
-    });
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/produtos/listar-todos`)
+      .then((respostaApi) => setProdutos(respostaApi.data));
   }, []);
 
   return (
     <>
-      <h1>listagem de produtos</h1>
-      <strong>
-        <span>algum texto</span>
-      </strong>
-      {lancamentos.map((cadaLancamento) => {
-        return (
-          <div key={cadaLancamento.flight_number}>
-            <h2>Nome da missão: {cadaLancamento.mission_name}</h2>
-            <p>Detalhes da missão: {cadaLancamento.details}</p>
-            <p>Ano de lançamento: {cadaLancamento.launch_year}</p>
-            <InsigniaDaMissao
-              urlInsignia={cadaLancamento.links.mission_patch_small}
-              urlWikipedia={cadaLancamento.links.wikipedia}
-
-            />
-          </div>
-        );
-      })}
+      <h1>Listagem de produtos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Tamanho</th>
+          </tr>
+        </thead>
+        <tbody>
+          {produtos.map((cadaProduto) => {
+            return (
+              <tr key={cadaProduto.id}>
+                <td>{cadaProduto.nome}</td>
+                <td>{cadaProduto.descricao}</td>
+                <td>{cadaProduto.preco}</td>
+                <td>{cadaProduto.tamanho}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </>
   );
 };
