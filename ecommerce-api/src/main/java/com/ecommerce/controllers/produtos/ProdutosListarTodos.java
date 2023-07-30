@@ -1,5 +1,7 @@
 package com.ecommerce.controllers.produtos;
 
+import com.ecommerce.utils.AccessControllHeaders;
+
 import java.io.IOException;
 
 import com.ecommerce.database.RepositorioDeProdutos;
@@ -24,6 +26,7 @@ public class ProdutosListarTodos extends HttpServlet {
 
 		response.setContentType("application/json");
 		response.setStatus(HttpServletResponse.SC_OK);
+		AccessControllHeaders.addAccessControllHeaders(response);
 		response.getWriter().println(listaEmFormatoJson);
 	}
 }

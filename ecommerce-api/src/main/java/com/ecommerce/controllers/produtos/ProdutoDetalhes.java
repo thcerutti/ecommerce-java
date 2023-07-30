@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.ecommerce.database.RepositorioDeProdutos;
 import com.ecommerce.modelos.Produto;
+import com.ecommerce.utils.AccessControllHeaders;
 import com.google.gson.Gson;
 
 import jakarta.servlet.ServletException;
@@ -21,7 +22,7 @@ public class ProdutoDetalhes extends HttpServlet {
 
 		Produto produto = new RepositorioDeProdutos().ListarTodos()[0];
 		String detalheProduto = new Gson().toJson(produto);
-
+		AccessControllHeaders.addAccessControllHeaders(response);
 		response.setContentType("application/json");
 		response.setStatus(HttpServletResponse.SC_OK);
 		response.getWriter().println(detalheProduto);
