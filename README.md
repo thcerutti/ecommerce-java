@@ -19,9 +19,9 @@ Projeto da mentoria do [PAQ](https://github.com/paq-devs) para fins de estudo e 
 - [ ] Carregar detalhes de um produto
     - [ ] Adicionar produto ao carrinho de compras
     - [ ] Finaliza a compra
-- [ ] Tela de login
-    - [ ] Cadastro do comprador
-- Back-office
+- [ ] Tela de login para comprar
+    - [ ] Cadastro completo do comprador
+- [ ] Back-office
     - [ ] Login de administrador
     - [ ] Acesso a tela de pedidos
     - [ ] Controle de estoque
