@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ProdutoDetalhes extends BaseHttpController {
 
+	private static final long serialVersionUID = -3822258864806551199L;
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

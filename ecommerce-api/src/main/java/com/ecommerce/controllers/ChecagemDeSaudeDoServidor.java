@@ -12,7 +12,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ChecagemDeSaudeDoServidor extends BaseHttpController {
 
-  @Override
+private static final long serialVersionUID = -7058003293706744661L;
+
+@Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 

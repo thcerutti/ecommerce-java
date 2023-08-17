@@ -15,8 +15,7 @@ public class RepositorioDeProdutos {
       put(2, new Produto(2, "Produto 2", "Descrição do produto 2", 20.0, "M", urlCamiseta));
       put(3, new Produto(3, "Produto 3", "Descrição do produto 3", 30.0, "P", urlCamiseta));
       put(4, new Produto(4, "Produto 4", "Descrição do produto 4", 40.0, "GG", urlCamiseta));
-      put(5, new Produto(5, "Produto 5", "Descrição do produto 5", 50.0, "P", urlCamiseta));
-      
+      put(5, new Produto(5, "Produto 5", "Descrição do produto 5", 50.0, "P", urlCamiseta)); 
     }
   };
 
