@@ -22,9 +22,11 @@ private static final long serialVersionUID = -7058003293706744661L;
     response.setStatus(HttpServletResponse.SC_OK);
 
     HashMap<String, String> statusDoServidor = new HashMap<String, String>();
+    
     statusDoServidor.put("status_servidor", "ok");
-    statusDoServidor.put("nome", "davi");
+    statusDoServidor.put("nome", "Peto");
     statusDoServidor.put("data_hora_servidor", new Date().toString());
+    
     response.getWriter().println(new Gson().toJson(statusDoServidor));
   }
 }

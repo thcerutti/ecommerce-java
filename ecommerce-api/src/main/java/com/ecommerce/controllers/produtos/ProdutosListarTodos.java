@@ -20,7 +20,9 @@ public class ProdutosListarTodos extends BaseHttpController {
 			throws ServletException, IOException {
 		super.doGet(request, response);
 
-		Produto[] todosOsProdutos = new RepositorioDeProdutos().ListarTodos();
+		RepositorioDeProdutos repositorio = new RepositorioDeProdutos();
+		
+		Produto[] todosOsProdutos = repositorio.ListarTodos();
 		String listaEmFormatoJson = new Gson().toJson(todosOsProdutos);
 
 		response.setContentType("application/json");

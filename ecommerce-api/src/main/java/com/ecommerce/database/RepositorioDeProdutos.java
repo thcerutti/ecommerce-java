@@ -19,11 +19,12 @@ public class RepositorioDeProdutos {
     }
   };
 
-  public Produto[] ListarTodos() {
+  public Produto[] ListarTodos() {	
     return todosOsProdutos.values().toArray(new Produto[0]);
   }
 
   public Produto ObterPorId(int id) {
-    return todosOsProdutos.get(id);
+	  Produto naoEncontrado = new Produto(0, "Não encontrado", "", 0, "", "");
+    return todosOsProdutos.getOrDefault(id, naoEncontrado);
   }
 }

@@ -19,11 +19,19 @@ public class ProdutoDetalhes extends BaseHttpController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		super.doGet(request, response);
-
-		Produto produto = new RepositorioDeProdutos().ListarTodos()[0];
+		
+		RepositorioDeProdutos repositorioDeProdutos = new RepositorioDeProdutos();
+		int parametroId = Integer.parseInt(request.getParameter("id"));
+		
+		System.out.printf("ID: %s", parametroId);
+		
+		Produto produto = repositorioDeProdutos.ObterPorId(parametroId);
 		String detalheProduto = new Gson().toJson(produto);
+		
+		
 		response.setContentType("application/json");
-		response.setStatus(HttpServletResponse.SC_OK);
+		int status = produto.getId() == 0 ? HttpServletResponse.SC_NOT_FOUND : HttpServletResponse.SC_OK; 
+		response.setStatus(status);
 		response.getWriter().println(detalheProduto);
 	}
 }
